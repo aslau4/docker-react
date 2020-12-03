@@ -5,5 +5,6 @@ services:
 before_install:
   - docker build -t aslau4/docker-react -f Dockerfile.dev .
 
+#https://stackoverflow.com/questions/55991641/npm-test-coverage-never-exits
 script:
-  - docker run aslau4/docker-react npm run test -- --coverage
+  - docker run -e CI=true aslau4/docker-react npm run test
